@@ -18,6 +18,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ProductCURDComponent } from './components/admin/product-curd/product-curd.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminComponent } from './components/admin/admin.component';
     UserProfileComponent,
     SignInComponent,
     NavbarComponent,
-    AdminComponent
+    AdminComponent,
+    ProductCURDComponent
   ],
   imports: [
     BrowserModule,

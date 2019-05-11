@@ -1,0 +1,182 @@
+
+
+  
+          <div class="row">
+  
+            <div class="col m5 ">
+  
+              <form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+  
+                <div class="row">
+  
+                  <div class="input-field col s12">
+                      <label>Name :
+                          <label class="red-text">*</label> 
+                          </label>
+                    <input type="text" name="name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.name" placeholder="Enter full name" required>
+                  </div>
+  
+                </div>
+  
+                <div class="row">
+  
+                  <div class="input-field col s12">
+                      <label>Position :</label>
+                    <input type="text" name="position" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.position" placeholder="Eg : Snr. Developer">
+                  </div>
+  
+                </div>
+  
+                <div class="row">
+  
+                  <div class="input-field col s12">
+                      <label>Office :</label>
+                    <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Enter office location">
+                  </div>
+  
+                </div>
+  
+                <div class="row">
+  
+                  <div class="input-field col s12">
+                      <label>Salary :</label>
+                    <input type="text" name="salary" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.salary" placeholder="Salary per annum">
+                  </div>
+  
+                </div>
+  
+                <div class="row">
+  
+                  <div class="input-field col s12">
+  
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(employeeForm)">Reset</button>
+  
+                    <button class="btn btn-custom right" type="submit" [disabled]="!employeeForm.valid">Submit</button>
+  
+                  </div>
+  
+                </div>
+  
+              </form>
+  
+            </div>
+  
+            <div class="col s7">
+  
+                <table class="responsive-table highlight">
+  
+                    <thead>
+  
+                      <tr>
+  
+                        <th>Name</th>
+  
+                        <th>Position</th>
+  
+                        <th>Office</th>
+  
+                        <th></th>
+  
+                      </tr>
+  
+                    </thead>
+  
+                    <tr *ngFor="let emp of employeeService.employees">
+  
+                      <td>{{emp.name}}</td>
+  
+                      <td>{{emp.position}}</td>
+  
+                      <td>{{emp.office}}</td>
+  
+                      <td>
+  
+                           
+                        </td>
+  
+                    </tr>
+  
+                  </table>
+  
+            </div>
+  
+          </div>
+  
+
+          New designform
+          <div class="container">
+            <div class="row">
+          <div class="col-md-6 " style="background-color:#fff;margin-top:25px;padding:10px;">
+          <form action="/ProductInfo" method="POST" autocomplete="off">
+            <div class="form-row">
+                <div class="form-group col-md-6" style="width:320px;">
+                    <label>Enter Min TH Range Value : </label>
+                    <input type="text" class="form-control" name="MinTHRange" placeholder="Min TH Range" value="{{productInfo.MinTHRange}}">
+                    <div class="text-danger">{{productInfo.MinTHRangeError}}</div>
+                </div>
+            
+                <div class="form-group col-md-6">
+                    <label>Enter Max TH Range Value : </label>
+                    <input type="text" class="form-control" name="MaxTHRange" placeholder="Max TH Range" value="{{productInfo.MaxTHRange}}">
+                     <div class="text-danger">{{productInfo.MaxTHRangeError}}</div>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Enter  Min pH RangeValue : </label>
+                    <input type="text" class="form-control" name="MinpHRange" placeholder="Min pH Range">
+                </div>
+            
+                <div class="form-group col-md-6">
+                    <label>Enter  Max pH RangeValue : </label>
+                    <input type="text" class="form-control" name="MaxpHRange" placeholder="Max pH Range">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Enter  Product Name : </label>
+                    <input type="text" class="form-control" name="ProductName" placeholder="Product Name">
+                </div>
+            
+                <div class="form-group col-md-6">
+                    <label>Enter  Dosage : </label>
+                     <input type="text" class="form-control" name="Dosage" placeholder="Dosage">
+                </div>
+            </div>
+            
+                <div class="form-group col-md-6 offset-5" >
+                     <!-- <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Submit</button> -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                
+            </form>
+            </div>
+            <div class="col-md-6">
+              hhhhhh
+            </div>
+          </div><!--end Of Row-->
+          </div><!--end of container-->
+
+          Third Try
+          ********************
+
+          <div class="contaner">
+              <div class="row">
+                  <div class="col-md-3">
+                    Section 1
+                    </div>
+                  <div class="col-md-3">
+                    Section 2
+                    </div>
+                  <div class="col-md-3">
+                    Section 3
+                    </div>
+                  <div class="col-md-3">
+                    Section 4
+                    </div>
+                </div>
+          </div>
