@@ -4,7 +4,8 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  /* background-color: #56baed; */
+  background-color: whitesmoke;
 }
 
 body {
@@ -333,7 +334,6 @@ th:last-child {
   
 tr {
   border-top: 1px solid #C1C3D1;
-  border-bottom-: 1px solid #C1C3D1;
   color:#666B85;
   font-size:16px;
   font-weight:normal;

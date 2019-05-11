@@ -2,12 +2,17 @@ require('./config/config');
 require('./models/db');
 require('./config/passportConfig');
 
+const { mongoose } = require('./models/db');
+var productDetailsController = require('./controllers/Admin/productDetailsController');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 
 const rtsIndex = require('./routes/index.router');
+
+var productDetailsController = require('./controllers/Admin/productDetailsController');
 
 var app = express();
 
@@ -29,5 +34,6 @@ app.use((err, req, res, next) => {
     }
 });
 
+app.use('/productDetails', productDetailsController);
 // start server
 app.listen(process.env.PORT, () => console.log(`Server started at port : ${process.env.PORT}`));
