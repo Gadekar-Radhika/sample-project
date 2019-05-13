@@ -4,6 +4,6 @@ export class ProductDetails {
     MaxTHRange: number;
     MinpHRange: number;
     MaxpHRange: number;
-    ProductName: number;
+    ProductName: string;
     Dosage: number;
 }

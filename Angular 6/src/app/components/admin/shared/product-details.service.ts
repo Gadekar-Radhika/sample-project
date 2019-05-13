@@ -16,6 +16,11 @@ import { ProductDetails } from './product-details.model';
 export class ProductDetailsService {
   selectedProductDetails: ProductDetails;
   productDetails: ProductDetails[];
+  readonly baseURL = 'http://localhost:3000/productDetails';
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+  postProductDetail(product:ProductDetails)
+  {
+ return this.http.post(this.baseURL, product );
+  }
 }
