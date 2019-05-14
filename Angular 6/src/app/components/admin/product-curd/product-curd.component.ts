@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm,} from '@angular/forms';
 
 import { ProductDetailsService} from '../shared/product-details.service';
+import { ProductDetails } from '../shared/product-details.model';
 import { from } from 'rxjs';
 
 declare var M:any;
@@ -18,14 +19,15 @@ export class ProductCURDComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
+    this.refreshProductList();
   }
 
   resetForm(form?:NgForm)
   {
-    if(from)
+    if(form)
     form.reset();
     this._productDetailsService.selectedProductDetails = {
-      _id: "",
+      _id: " ",
       MinTHRange:null,
       MaxTHRange:null,
       MinpHRange:null,
@@ -37,10 +39,66 @@ export class ProductCURDComponent implements OnInit {
 
   onSubmit(form : NgForm)
   {
+    // if(form.value._id == "")
+    // {
     this._productDetailsService.postProductDetail(form.value).subscribe((res)=>
     {
       this.resetForm(form);
+      this.refreshProductList();
       M.toast({html:'Saved Successfully', classes : 'rounded'});
     });
+  // }
+  // else{
+  //   this._productDetailsService.putProducts(form.value).subscribe((res)=>
+  //   {
+  //     this.resetForm(form);
+  //     this.refreshProductList();
+  //     M.toast({html:'Updated Successfully', classes : 'rounded'});
+  //   });
+  // }
+  }
+
+  refreshProductList()
+  {
+    this._productDetailsService.getAllProducts().subscribe((res)=>
+    {
+      this._productDetailsService.productDetails = res as ProductDetails[];
+    });
+  }
+  onEdit(products : ProductDetails, form:NgForm)
+  {
+    
+   this._productDetailsService.selectedProductDetails = products;
+//    if(form.value._id == "")
+//    {
+//    this._productDetailsService.postProductDetail(form.value).subscribe((res)=>
+//    {
+//      this.resetForm(form);
+//      this.onSubmit(form);
+//      this.refreshProductList();
+//      M.toast({html:'Saved Successfully', classes : 'rounded'});
+//    });
+//  }
+//  else{
+//    this._productDetailsService.putProducts(form.value).subscribe((res)=>
+//    {
+//      this.resetForm(form);
+//      this.refreshProductList();
+//      M.toast({html:'Updated Successfully', classes : 'rounded'});
+//    });
+//  }
+  }
+
+  onDelete(_id:string, form:NgForm)
+  {
+    if(confirm('Are you sure to delete this record ?')==true)
+    {
+      this._productDetailsService.deleteProduct(_id).subscribe((res)=>
+      {
+        this.refreshProductList();
+        this.refreshProductList();
+        M.toast({html : 'Deleted Successfully', classes: 'rounded'});
+      });
+    }
   }
 }

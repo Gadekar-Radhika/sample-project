@@ -18,7 +18,8 @@ var app = express();
 
 // middleware
 app.use(bodyParser.json());
-app.use(cors());
+//allows request from any port number or domain 
+app.use(cors({origin: 'http://localhost:4200'}));
 app.use(passport.initialize());
 app.use('/api', rtsIndex);
 

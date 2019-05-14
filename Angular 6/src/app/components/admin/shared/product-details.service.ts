@@ -19,8 +19,22 @@ export class ProductDetailsService {
   readonly baseURL = 'http://localhost:3000/productDetails';
 
   constructor(private http:HttpClient) { }
-  postProductDetail(product:ProductDetails)
+  postProductDetail(products:ProductDetails)
   {
- return this.http.post(this.baseURL, product );
+ return this.http.post(this.baseURL, products );
+  }
+
+  //Function for Fetch all products from mongodb
+  getAllProducts()
+  {
+    return this.http.get(this.baseURL);
+  }
+  putProducts(products: ProductDetails)
+  {
+    return this.http.put(this.baseURL + `/${products._id}`,products);
+  }
+  deleteProduct(_id:string)
+  {
+     return this.http.delete(this.baseURL + `/${_id}`);
   }
 }

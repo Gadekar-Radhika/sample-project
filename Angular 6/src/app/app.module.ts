@@ -10,7 +10,7 @@ import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
 //routes
 import { appRoutes } from './routes';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+
 import { SignInComponent } from './user/sign-in/sign-in.component';
 import { UserService } from './shared/user.service';
 //other
@@ -25,7 +25,6 @@ import { ProductCURDComponent } from './components/admin/product-curd/product-cu
     AppComponent,
     UserComponent,
     SignUpComponent,
-    UserProfileComponent,
     SignInComponent,
     NavbarComponent,
     AdminComponent,

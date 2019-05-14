@@ -1,11 +1,11 @@
 
           <div class="row">
   
-            <div class="col m3 ">
+            <div class="col m3" style="background-color:dimgray;">
   
               <form #productDetailForm="ngForm" (ngSubmit)="onSubmit(productDetailForm)">
   
-                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="_productDetailsService.selectedProductDetails._id">
+               <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="_productDetailsService.selectedProductDetails._id"> 
   
                 <div class="row">
   
@@ -13,7 +13,7 @@
                       <label>MinTHRange:
                           <label class="red-text">*</label> 
                           </label>
-                    <input type="text" name="MinTHRange" #name="ngModel" [(ngModel)]="_productDetailsService.selectedProductDetails.MinTHRange" placeholder="Enter Minimum TH Range" required>
+                    <input type="text" name="MinTHRange" #name="ngModel" [(ngModel)]="_productDetailsService.selectedProductDetails.MinTHRange" placeholder="Enter Minimum TH Range">
                   </div>
   
                 </div>
@@ -63,7 +63,6 @@
   
                 </div>
 
-                
   
                 <div class="row">
   
@@ -80,10 +79,12 @@
               </form>
   
             </div>
+
+                  <!-- Table to show product list  -->
   
             <div class="col s9">
                 <table>
-                    <thead>
+                    <thead class="responsive-table hightlight">
                       <tr>
                         <th>MinTHRange</th>
                         <th>MaxTHRange</th>
@@ -94,23 +95,26 @@
                         <th>Actions</th>
                         </tr>
                     </thead>
-                    <!-- <tr *ngFor="let products of _productDetailsService.products">
+                     <tr *ngFor="let products of _productDetailsService. productDetails">
   
                       <td>{{products.MinTHRange}}</td>
   
-                      <td>{{products}.MaxTHRange}}</td>
+                     <td>{{products.MaxTHRange}}</td>
   
-                      <td>{{products.MinpHRange}}</td>
+                       <td>{{products.MinpHRange}}</td>
 
                       <td>{{products.MaxpHRange}}</td>
 
                       <td>{{products.ProductName}}</td>
 
                       <td>{{products.Dosage}}</td>
+
+                      <td>
+                       <a (click)="onEdit(products)"><i class="fa fa-pencil-square-o" aria-hidden="true" style="margin-right:25px"></i></a>
+                       <a (click)="onDelete(products._id,productDetailForm)"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                      </td>                     
   
-                      <td></td>                     
-  
-                    </tr> -->
+                    </tr> 
                   </table>
             </div>
   
