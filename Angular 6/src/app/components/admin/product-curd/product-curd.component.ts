@@ -39,23 +39,25 @@ export class ProductCURDComponent implements OnInit {
 
   onSubmit(form : NgForm)
   {
-    // if(form.value._id == "")
-    // {
-    this._productDetailsService.postProductDetail(form.value).subscribe((res)=>
+    if(form.value._id == " ")
     {
+    this._productDetailsService.postProductDetail(form.value).subscribe((_res)=>
+  {
+    // this._productDetailsService.productDetails = res as ProductDetails[];
       this.resetForm(form);
       this.refreshProductList();
       M.toast({html:'Saved Successfully', classes : 'rounded'});
     });
-  // }
-  // else{
-  //   this._productDetailsService.putProducts(form.value).subscribe((res)=>
-  //   {
-  //     this.resetForm(form);
-  //     this.refreshProductList();
-  //     M.toast({html:'Updated Successfully', classes : 'rounded'});
-  //   });
-  // }
+  }
+  else{
+    this._productDetailsService.putProducts(form.value).subscribe((_res)=>
+    {
+      // this._productDetailsService.productDetails = res as ProductDetails[];
+      this.resetForm(form);
+      this.refreshProductList();
+      M.toast({html:'Updated Successfully', classes : 'rounded'});
+    });
+  }
   }
 
   refreshProductList()
@@ -65,38 +67,20 @@ export class ProductCURDComponent implements OnInit {
       this._productDetailsService.productDetails = res as ProductDetails[];
     });
   }
-  onEdit(products : ProductDetails, form:NgForm)
+  onEdit(products : ProductDetails)
   {
     
-   this._productDetailsService.selectedProductDetails = products;
-//    if(form.value._id == "")
-//    {
-//    this._productDetailsService.postProductDetail(form.value).subscribe((res)=>
-//    {
-//      this.resetForm(form);
-//      this.onSubmit(form);
-//      this.refreshProductList();
-//      M.toast({html:'Saved Successfully', classes : 'rounded'});
-//    });
-//  }
-//  else{
-//    this._productDetailsService.putProducts(form.value).subscribe((res)=>
-//    {
-//      this.resetForm(form);
-//      this.refreshProductList();
-//      M.toast({html:'Updated Successfully', classes : 'rounded'});
-//    });
-//  }
+  this._productDetailsService.selectedProductDetails = products;
   }
 
   onDelete(_id:string, form:NgForm)
   {
     if(confirm('Are you sure to delete this record ?')==true)
     {
-      this._productDetailsService.deleteProduct(_id).subscribe((res)=>
+      this._productDetailsService.deleteProduct(_id).subscribe((_res)=>
       {
         this.refreshProductList();
-        this.refreshProductList();
+        this.resetForm(form);
         M.toast({html : 'Deleted Successfully', classes: 'rounded'});
       });
     }
